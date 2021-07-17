@@ -74,8 +74,7 @@ exinlibs/exinisr.obj: ../exinlibs/LMT70RD.h
 exinlibs/exinisr.obj: ../exinlibs/headfile.h
 exinlibs/exinisr.obj: ../exinlibs/ADS1292.h
 exinlibs/exinisr.obj: ../exinlibs/ADS_RCV.h
-exinlibs/exinisr.obj: ../exinlibs/exinfilter.h
-exinlibs/exinisr.obj: ../exinlibs/exincitysensor.h
+exinlibs/exinisr.obj: ../exinlibs/exinHC_SR04.h
 exinlibs/exinisr.obj: ../exinlibs/exinisr.h
 
 ../exinlibs/exinisr.c: 
@@ -152,6 +151,5 @@ D:/CCS/ccs/tools/compiler/ti-cgt-arm_20.2.1.LTS/include/stdarg.h:
 ../exinlibs/headfile.h: 
 ../exinlibs/ADS1292.h: 
 ../exinlibs/ADS_RCV.h: 
-../exinlibs/exinfilter.h: 
-../exinlibs/exincitysensor.h: 
+../exinlibs/exinHC_SR04.h: 
 ../exinlibs/exinisr.h: 

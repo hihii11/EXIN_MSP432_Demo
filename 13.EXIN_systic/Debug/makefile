@@ -10,13 +10,14 @@ GEN_OPTS__FLAG :=
 GEN_CMDS__FLAG := 
 
 ORDERED_OBJS += \
-"./Exin_sys.obj" \
+"./Exin_systic.obj" \
 "./exinlibs/ADS1292.obj" \
 "./exinlibs/ADS_RCV.obj" \
 "./exinlibs/LMT70RD.obj" \
 "./exinlibs/OV_RCV.obj" \
 "./exinlibs/Oscill_OLED.obj" \
 "./exinlibs/exinADC.obj" \
+"./exinlibs/exinHC_SR04.obj" \
 "./exinlibs/exin_library_map_guide.obj" \
 "./exinlibs/exin_pit.obj" \
 "./exinlibs/exinadjust.obj" \
@@ -181,8 +182,8 @@ mmWave-uart.hex: $(EXE_OUTPUTS)
 # Other Targets
 clean:
 	-$(RM) $(BIN_OUTPUTS__QUOTED)$(EXE_OUTPUTS__QUOTED)
-	-$(RM) "Exin_sys.obj" "exinlibs\ADS1292.obj" "exinlibs\ADS_RCV.obj" "exinlibs\LMT70RD.obj" "exinlibs\OV_RCV.obj" "exinlibs\Oscill_OLED.obj" "exinlibs\exinADC.obj" "exinlibs\exin_library_map_guide.obj" "exinlibs\exin_pit.obj" "exinlibs\exinadjust.obj" "exinlibs\exincitysensor.obj" "exinlibs\exinencoder.obj" "exinlibs\exinfilter.obj" "exinlibs\exingpio.obj" "exinlibs\exinisr.obj" "exinlibs\exinkey.obj" "exinlibs\exinmotor.obj" "exinlibs\exinpwm.obj" "exinlibs\exinsteer.obj" "exinlibs\exinsystem.obj" "exinlibs\exinuart.obj" "exinlibs\oled.obj" "exinlibs\serial.obj" "exinlibs\startup_msp432p401r_ccs.obj" "exinlibs\system_msp432p401r.obj" 
-	-$(RM) "Exin_sys.d" "exinlibs\ADS1292.d" "exinlibs\ADS_RCV.d" "exinlibs\LMT70RD.d" "exinlibs\OV_RCV.d" "exinlibs\Oscill_OLED.d" "exinlibs\exinADC.d" "exinlibs\exin_library_map_guide.d" "exinlibs\exin_pit.d" "exinlibs\exinadjust.d" "exinlibs\exincitysensor.d" "exinlibs\exinencoder.d" "exinlibs\exinfilter.d" "exinlibs\exingpio.d" "exinlibs\exinisr.d" "exinlibs\exinkey.d" "exinlibs\exinmotor.d" "exinlibs\exinpwm.d" "exinlibs\exinsteer.d" "exinlibs\exinsystem.d" "exinlibs\exinuart.d" "exinlibs\oled.d" "exinlibs\serial.d" "exinlibs\startup_msp432p401r_ccs.d" "exinlibs\system_msp432p401r.d" 
+	-$(RM) "Exin_systic.obj" "exinlibs\ADS1292.obj" "exinlibs\ADS_RCV.obj" "exinlibs\LMT70RD.obj" "exinlibs\OV_RCV.obj" "exinlibs\Oscill_OLED.obj" "exinlibs\exinADC.obj" "exinlibs\exinHC_SR04.obj" "exinlibs\exin_library_map_guide.obj" "exinlibs\exin_pit.obj" "exinlibs\exinadjust.obj" "exinlibs\exincitysensor.obj" "exinlibs\exinencoder.obj" "exinlibs\exinfilter.obj" "exinlibs\exingpio.obj" "exinlibs\exinisr.obj" "exinlibs\exinkey.obj" "exinlibs\exinmotor.obj" "exinlibs\exinpwm.obj" "exinlibs\exinsteer.obj" "exinlibs\exinsystem.obj" "exinlibs\exinuart.obj" "exinlibs\oled.obj" "exinlibs\serial.obj" "exinlibs\startup_msp432p401r_ccs.obj" "exinlibs\system_msp432p401r.obj" 
+	-$(RM) "Exin_systic.d" "exinlibs\ADS1292.d" "exinlibs\ADS_RCV.d" "exinlibs\LMT70RD.d" "exinlibs\OV_RCV.d" "exinlibs\Oscill_OLED.d" "exinlibs\exinADC.d" "exinlibs\exinHC_SR04.d" "exinlibs\exin_library_map_guide.d" "exinlibs\exin_pit.d" "exinlibs\exinadjust.d" "exinlibs\exincitysensor.d" "exinlibs\exinencoder.d" "exinlibs\exinfilter.d" "exinlibs\exingpio.d" "exinlibs\exinisr.d" "exinlibs\exinkey.d" "exinlibs\exinmotor.d" "exinlibs\exinpwm.d" "exinlibs\exinsteer.d" "exinlibs\exinsystem.d" "exinlibs\exinuart.d" "exinlibs\oled.d" "exinlibs\serial.d" "exinlibs\startup_msp432p401r_ccs.d" "exinlibs\system_msp432p401r.d" 
 	-@echo 'Finished clean'
 	-@echo ' '
 

@@ -22,6 +22,7 @@ void OLED_SHOWTEMPTURE()
 void main()
 {
     system_init(0);
+	set_DCO_48MH();
     OLED_Init();
 
     LMT_Init();

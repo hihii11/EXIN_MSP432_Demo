@@ -74,8 +74,7 @@ exinlibs/oled.obj: ../exinlibs/LMT70RD.h
 exinlibs/oled.obj: ../exinlibs/headfile.h
 exinlibs/oled.obj: ../exinlibs/ADS1292.h
 exinlibs/oled.obj: ../exinlibs/ADS_RCV.h
-exinlibs/oled.obj: ../exinlibs/exinfilter.h
-exinlibs/oled.obj: ../exinlibs/exincitysensor.h
+exinlibs/oled.obj: ../exinlibs/exinHC_SR04.h
 exinlibs/oled.obj: ../exinlibs/oledfont.h
 
 ../exinlibs/oled.c: 
@@ -152,6 +151,5 @@ D:/CCS/ccs/tools/compiler/ti-cgt-arm_20.2.1.LTS/include/stdarg.h:
 ../exinlibs/headfile.h: 
 ../exinlibs/ADS1292.h: 
 ../exinlibs/ADS_RCV.h: 
-../exinlibs/exinfilter.h: 
-../exinlibs/exincitysensor.h: 
+../exinlibs/exinHC_SR04.h: 
 ../exinlibs/oledfont.h: 

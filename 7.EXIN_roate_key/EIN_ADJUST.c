@@ -20,6 +20,7 @@
 void main()
 {
     system_init(0);
+    set_DCO_48MH();
     Rotate_adjust_TEST();
     while(1);
 }

@@ -20,5 +20,6 @@ ABÏà±àÂëÆ÷
 void main()
 {
     system_init(0);
+	set_DCO_48MH();
     ENCODER_TEST();//±àÂëÆ÷²âÊÔÀý³Ì
 }

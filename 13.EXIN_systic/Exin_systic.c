@@ -21,6 +21,7 @@ float press_time=0;
 void main()
 {
     system_init(1);//1:初始化滴答计时器
+	set_DCO_48MH();
     OLED_Init();//OLED初始化
     key_init(KEY1|KEY2);
     gpio_init(GPIO_PORT_P1, GPIO_PIN0,GPO,1);//方向

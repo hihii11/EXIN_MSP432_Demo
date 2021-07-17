@@ -15,6 +15,7 @@ C_SRCS += \
 ../exinlibs/OV_RCV.c \
 ../exinlibs/Oscill_OLED.c \
 ../exinlibs/exinADC.c \
+../exinlibs/exinHC_SR04.c \
 ../exinlibs/exin_library_map_guide.c \
 ../exinlibs/exin_pit.c \
 ../exinlibs/exinadjust.c \
@@ -41,6 +42,7 @@ C_DEPS += \
 ./exinlibs/OV_RCV.d \
 ./exinlibs/Oscill_OLED.d \
 ./exinlibs/exinADC.d \
+./exinlibs/exinHC_SR04.d \
 ./exinlibs/exin_library_map_guide.d \
 ./exinlibs/exin_pit.d \
 ./exinlibs/exinadjust.d \
@@ -67,6 +69,7 @@ OBJS += \
 ./exinlibs/OV_RCV.obj \
 ./exinlibs/Oscill_OLED.obj \
 ./exinlibs/exinADC.obj \
+./exinlibs/exinHC_SR04.obj \
 ./exinlibs/exin_library_map_guide.obj \
 ./exinlibs/exin_pit.obj \
 ./exinlibs/exinadjust.obj \
@@ -93,6 +96,7 @@ OBJS__QUOTED += \
 "exinlibs\OV_RCV.obj" \
 "exinlibs\Oscill_OLED.obj" \
 "exinlibs\exinADC.obj" \
+"exinlibs\exinHC_SR04.obj" \
 "exinlibs\exin_library_map_guide.obj" \
 "exinlibs\exin_pit.obj" \
 "exinlibs\exinadjust.obj" \
@@ -119,6 +123,7 @@ C_DEPS__QUOTED += \
 "exinlibs\OV_RCV.d" \
 "exinlibs\Oscill_OLED.d" \
 "exinlibs\exinADC.d" \
+"exinlibs\exinHC_SR04.d" \
 "exinlibs\exin_library_map_guide.d" \
 "exinlibs\exin_pit.d" \
 "exinlibs\exinadjust.d" \
@@ -145,6 +150,7 @@ C_SRCS__QUOTED += \
 "../exinlibs/OV_RCV.c" \
 "../exinlibs/Oscill_OLED.c" \
 "../exinlibs/exinADC.c" \
+"../exinlibs/exinHC_SR04.c" \
 "../exinlibs/exin_library_map_guide.c" \
 "../exinlibs/exin_pit.c" \
 "../exinlibs/exinadjust.c" \

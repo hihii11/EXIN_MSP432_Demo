@@ -27,6 +27,7 @@ void PORT1_IRQHandler(void)
     if(status & GPIO_PIN1)
     {
         /*Ìí¼Ó³ÌÐò*/
+        gpio_toggle(GPIO_PORT_P1,GPIO_PIN0);
     }
     else if(status & GPIO_PIN2)
     {

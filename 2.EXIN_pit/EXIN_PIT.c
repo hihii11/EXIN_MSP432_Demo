@@ -19,6 +19,7 @@
 void main()
 {
     system_init(0);
+	set_DCO_48MH();
     gpio_init(GPIO_PORT_P1,GPIO_PIN0,GPO,1);
     PIT_init(PIT_CHA,100);//100ms
     while(1);

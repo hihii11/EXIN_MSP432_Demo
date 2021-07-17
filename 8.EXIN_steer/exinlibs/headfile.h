@@ -48,8 +48,8 @@ extern "C"
 #include "LMT70RD.h"
 #include "ADS1292.h"
 #include "ADS_RCV.h"
-#include "exinfilter.h"
-#include "exincitysensor.h"
+//#include "exinfilter.h"
+//#include "exincitysensor.h"
 #include "exinHC_SR04.h"
 #ifdef __cplusplus
 }

@@ -36,7 +36,7 @@ void key_init(uint8 key)
     }
     else if(key&KEY4 )
     {
-        gpio_init(GPIO_PORT_P8,GPIO_PIN2,GPO,1);
+        gpio_init(GPIO_PORT_P8,GPIO_PIN3,GPO,1);
     }
 }
 
@@ -66,6 +66,54 @@ uint8 key_get(uint8 key)
         }
         else if(key&KEY4 )
         {
-            return gpio_get(GPIO_PORT_P8,GPIO_PIN2);
+            return gpio_get(GPIO_PORT_P8,GPIO_PIN3);
         }
+}
+
+void key_test()
+{
+    while(1)
+       {
+           OLED_ShowString(0,0,"NO    KEY!");
+           if(!key_get(KEY1))
+           {
+               delay_ms(10);
+               if(!key_get(KEY1))
+               {
+                   OLED_Clear();
+                   OLED_ShowString(0,0,"KEY1 DOWN!");
+               }
+               while(!key_get(KEY1));
+           }
+           else if(!key_get(KEY2))
+           {
+               delay_ms(10);
+               if(!key_get(KEY2))
+               {
+                   OLED_Clear();
+                   OLED_ShowString(0,0,"KEY2 DOWN!");
+               }
+               while(!key_get(KEY2));
+           }
+           else if(!key_get(KEY3))
+             {
+                 delay_ms(10);
+                 if(!key_get(KEY3))
+                 {
+                     OLED_Clear();
+                     OLED_ShowString(0,0,"KEY3 DOWN!");
+                 }
+                 while(!key_get(KEY3));
+             }
+           else if(!key_get(KEY4))
+             {
+                 delay_ms(10);
+                 if(!key_get(KEY4))
+                 {
+                     OLED_Clear();
+                     OLED_ShowString(0,0,"KEY4 DOWN!");
+                 }
+                 while(!key_get(KEY4));
+             }
+       }
 }

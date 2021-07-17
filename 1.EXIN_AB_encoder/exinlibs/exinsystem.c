@@ -12,6 +12,59 @@
 #include"exinsystem.h"
 long int sysc=0;
 long int systim=0;
+
+/***********************************/
+/* error
+ *
+ * 错误闪灯
+ */
+/**********************************/
+void error(void)
+{
+    volatile uint32_t i;
+
+    while (1)
+    {
+        P1->OUT ^= BIT0;
+        for(i = 20000; i > 0; i--);           // Blink LED forever
+    }
+}
+/***********************************/
+/* set_DCO_48MH
+ *
+ * 将DCO时钟设置为48MHZ
+ */
+/**********************************/
+void set_DCO_48MH()
+{
+    //过渡到VCORE Level 1: AM0_LDO——> AM1_LDO
+    uint32_t currentPowerState;
+    currentPowerState = PCM->CTL0 & PCM_CTL0_CPM_MASK;
+    P1->DIR |= BIT0;
+    if (currentPowerState != PCM_CTL0_CPM_0)
+       error();
+
+    while ((PCM->CTL1 & PCM_CTL1_PMR_BUSY));
+    PCM->CTL0 = PCM_CTL0_KEY_VAL | PCM_CTL0_AMR_1;
+    while ((PCM->CTL1 & PCM_CTL1_PMR_BUSY));
+    if (PCM->IFG & PCM_IFG_AM_INVALID_TR_IFG)
+       error();
+    if ((PCM->CTL0 & PCM_CTL0_CPM_MASK) != PCM_CTL0_CPM_1)
+       error();
+    FLCTL->BANK0_RDCTL = FLCTL->BANK0_RDCTL & (~FLCTL_BANK0_RDCTL_WAIT_MASK) |
+               FLCTL_BANK0_RDCTL_WAIT_2;
+    FLCTL->BANK1_RDCTL  = FLCTL->BANK0_RDCTL & (~FLCTL_BANK1_RDCTL_WAIT_MASK) |
+           FLCTL_BANK1_RDCTL_WAIT_2;  //配置flash
+    // 设置DCO时钟到48Mhz
+     CS->KEY = CS_KEY_VAL ;                  // 解锁CS寄存器
+     CS->CTL0 = 0;                           // 重置CTL0寄存器
+     CS->CTL0 = CS_CTL0_DCORSEL_5;           // 设置DCO时钟为48M
+    //将MCLK选为DCO
+     CS->CTL1 = CS->CTL1 & ~(CS_CTL1_SELM_MASK | CS_CTL1_DIVM_MASK) |
+             CS_CTL1_SELM_3;
+     CS->KEY = 0;                            // CS寄存器上锁
+}
+
 /***********************************/
 /* set_clock_period
  *
@@ -22,6 +75,7 @@ void set_clock_period()
 {
     SysTick->LOAD =0xFFFFFF;
 }
+
 /***********************************/
 /* systic_init
  *
@@ -129,3 +183,20 @@ void SysTick_Handler(void)
 {
     systim++;
 }
+
+
+
+void systic_delayus(int n)
+{
+    systic_init();
+    systic_start();
+    while(systic_read(us)<=n);
+    systic_end();
+}
+
+void systic_delayms(int n)
+{
+    n*=1000;
+    systic_delayus(n);
+}
+

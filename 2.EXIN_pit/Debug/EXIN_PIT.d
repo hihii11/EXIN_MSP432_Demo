@@ -74,6 +74,7 @@ EXIN_PIT.obj: ../exinlibs/LMT70RD.h
 EXIN_PIT.obj: ../exinlibs/headfile.h
 EXIN_PIT.obj: ../exinlibs/ADS1292.h
 EXIN_PIT.obj: ../exinlibs/ADS_RCV.h
+EXIN_PIT.obj: ../exinlibs/exinHC_SR04.h
 
 ../EXIN_PIT.c: 
 ../exinlibs/headfile.h: 
@@ -149,3 +150,4 @@ D:/CCS/ccs/tools/compiler/ti-cgt-arm_20.2.1.LTS/include/stdarg.h:
 ../exinlibs/headfile.h: 
 ../exinlibs/ADS1292.h: 
 ../exinlibs/ADS_RCV.h: 
+../exinlibs/exinHC_SR04.h: 

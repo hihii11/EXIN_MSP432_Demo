@@ -74,6 +74,7 @@ exinlibs/Oscill_OLED.obj: ../exinlibs/LMT70RD.h
 exinlibs/Oscill_OLED.obj: ../exinlibs/headfile.h
 exinlibs/Oscill_OLED.obj: ../exinlibs/ADS1292.h
 exinlibs/Oscill_OLED.obj: ../exinlibs/ADS_RCV.h
+exinlibs/Oscill_OLED.obj: ../exinlibs/exinHC_SR04.h
 exinlibs/Oscill_OLED.obj: D:/CCS/ccs/tools/compiler/ti-cgt-arm_20.2.1.LTS/include/math.h
 exinlibs/Oscill_OLED.obj: D:/CCS/ccs/tools/compiler/ti-cgt-arm_20.2.1.LTS/include/_defs.h
 exinlibs/Oscill_OLED.obj: D:/CCS/ccs/tools/compiler/ti-cgt-arm_20.2.1.LTS/include/machine/_limits.h
@@ -152,6 +153,7 @@ D:/CCS/ccs/tools/compiler/ti-cgt-arm_20.2.1.LTS/include/stdarg.h:
 ../exinlibs/headfile.h: 
 ../exinlibs/ADS1292.h: 
 ../exinlibs/ADS_RCV.h: 
+../exinlibs/exinHC_SR04.h: 
 D:/CCS/ccs/tools/compiler/ti-cgt-arm_20.2.1.LTS/include/math.h: 
 D:/CCS/ccs/tools/compiler/ti-cgt-arm_20.2.1.LTS/include/_defs.h: 
 D:/CCS/ccs/tools/compiler/ti-cgt-arm_20.2.1.LTS/include/machine/_limits.h: 

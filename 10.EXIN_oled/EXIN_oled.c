@@ -22,6 +22,7 @@ RES:P4.0
 void main()
 {
     system_init(0);
+	set_DCO_48MH();
     OLED_Init();
     OLED_SHOW();
     while(1);

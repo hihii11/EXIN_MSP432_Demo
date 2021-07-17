@@ -20,6 +20,7 @@
 void main()
 {
     system_init(0);
+	set_DCO_48MH();
     UART0_init();//初始化串口1，对应launchpad usb接口 波特率115200
     gpio_init(GPIO_PORT_P1,GPIO_PIN1,GPO,1);
     delay_ms(1000);

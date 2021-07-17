@@ -17,6 +17,7 @@ ADCÊÔÀý³Ì
 void main()
 {
     system_init(0);
+	set_DCO_48MH();
     ADC_TEST();
     while(1);
 }

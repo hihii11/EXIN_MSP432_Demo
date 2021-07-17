@@ -18,6 +18,7 @@ PWM¶Ë¿Ú: P5.6 P5.7
 void main()
 {
     system_init(0);
+	set_DCO_48MH();
     STEER_TEST();
     while(1);
 }

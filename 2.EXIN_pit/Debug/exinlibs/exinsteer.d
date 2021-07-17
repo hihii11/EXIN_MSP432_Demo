@@ -74,6 +74,7 @@ exinlibs/exinsteer.obj: ../exinlibs/LMT70RD.h
 exinlibs/exinsteer.obj: ../exinlibs/headfile.h
 exinlibs/exinsteer.obj: ../exinlibs/ADS1292.h
 exinlibs/exinsteer.obj: ../exinlibs/ADS_RCV.h
+exinlibs/exinsteer.obj: ../exinlibs/exinHC_SR04.h
 
 ../exinlibs/exinsteer.c: 
 ../exinlibs/headfile.h: 
@@ -149,3 +150,4 @@ D:/CCS/ccs/tools/compiler/ti-cgt-arm_20.2.1.LTS/include/stdarg.h:
 ../exinlibs/headfile.h: 
 ../exinlibs/ADS1292.h: 
 ../exinlibs/ADS_RCV.h: 
+../exinlibs/exinHC_SR04.h: 

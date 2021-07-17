@@ -21,10 +21,13 @@ extern "C"
 #define SYSTIC_CONFIGURE SysTick_CTRL_CLKSOURCE_Msk |SysTick_CTRL_ENABLE_Msk|SysTick_CTRL_TICKINT_Msk
 //选用MSK时钟源(DCO时钟 3MHZ) 允许Systic中断
 
-#define CPU_F                               ((double)3000000)//CPU主频
+#define CPU_F                               ((double)48000000)//CPU主频
 #define F_Div                              CPU_F/1000/1000//分频系数
-#define delay_us(x)                       __delay_cycles((long)(CPU_F*(double)x/1000000.0))
-#define delay_ms(x)                      __delay_cycles((long)(CPU_F*(double)x/1000.0))
+//#define delay_us(x)                       __delay_cycles((long)(CPU_F*(double)x/1000000.0))
+//#define delay_ms(x)                      __delay_cycles((long)(CPU_F*(double)x/1000.0))
+#define delay_us(x)                      systic_delayus((int)x)
+#define delay_ms(x)                      systic_delayms((int)x)
+
 
 extern long int time;
 
@@ -34,6 +37,9 @@ extern void systic_end();
 extern int systic_read();
 extern void systic_clr();
 extern void set_clock_period();
+extern void set_DCO_48MH();
+extern void systic_delayus(int n);
+extern void systic_delayms(int n);
 #ifdef __cplusplus
 }
 #endif

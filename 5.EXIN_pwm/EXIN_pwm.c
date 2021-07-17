@@ -17,6 +17,7 @@
 void main()
 {
     system_init(0);
-    MOTOR_TEST();
+	set_DCO_48MH();
+    PWM_TEST();
     while(1);
 }

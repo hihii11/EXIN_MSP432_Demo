@@ -21,6 +21,7 @@ extern "C"
 #define KEY4 0x01<<3
 extern void key_init(uint8 key);
 extern uint8 key_get(uint8 key);
+extern void key_test();
 #ifdef __cplusplus
 }
 #endif

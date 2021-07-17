@@ -26,6 +26,7 @@ void distance_SHOW()
 void main()
 {
     system_init(1);//初始化滴答计时器
+	set_DCO_48MH();
     OLED_Init();//OLED初始化
     HC_SR04_init();
     while(1)
