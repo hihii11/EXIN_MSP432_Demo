@@ -15,8 +15,8 @@ extern "C"
 {
 #endif
 
-#define steer_midA 54//舵机x,y平面中值
-#define steer_midB 41//舵机y,z平面中值
+#define steer_midA 4650//舵机x,y平面中值
+#define steer_midB 4650//舵机y,z平面中值
 typedef enum{
     steer_CHA=0,//A通道
     steer_CHB,//B通道

@@ -8,8 +8,8 @@
  * 版本 v1.0
  * 时间 2019年1月23日22:29:47
 -------------------------------------------------------------------------------------------------------*/
-#ifndef  _my_PID_H__
-#define  _my_PID_H__
+#ifndef  _exinmotor_h
+#define  _exinmotor_h
 
 #ifdef __cplusplus
 extern "C"

@@ -38,8 +38,8 @@ void ADC_INIT()
                  WDT_A_CTL_HOLD;
 
     // Configure GPIO
-    P5->SEL1 |= BIT5 | BIT4 | BIT3 |BIT2;   // Enable A/D channel A0-A3
-    P5->SEL0 |= BIT5 | BIT4 | BIT3 |BIT2;
+    P5->SEL1 |= BIT5| BIT4 | BIT3 |BIT2;;   // Enable A/D channel A0-A3
+    P5->SEL0 |= BIT5| BIT4 | BIT3 |BIT2;;
 
     __enable_interrupt();
     NVIC->ISER[0] = 1 << ((ADC14_IRQn) & 31);// Enable ADC interrupt in NVIC module

@@ -27,10 +27,18 @@ void pwm_clock_init()
 /*pwm可输出口p2.6 p2.7 p2.5 p2.4 p5.6 p5.7
   pwm_init()//通道在exinpwm.h文件中列出
  *
+ *参数：CHI  PWM可选通道/在exinpwm.h中列出
+ *period   周期 单位为hz
+ *duty   初始化占空比
+ *占空比最大值计算方式如下
+ *
+ *duty(max):3_000_000/period
+ *如period为1000hz   则duty允许调整范围为0~3000
+ *
 /**********************************/
 void pwm_init(PWMCH_enum CHI,int period,int duty)
 {
-
+    period=200/(float)(period)*15000;
     switch(CHI)
     {
     case( pwm_CHA):
@@ -44,7 +52,7 @@ void pwm_init(PWMCH_enum CHI,int period,int duty)
          TIMER_A0->CCR[3] =  duty-1;
          TIMER_A0->CCTL[3] = TIMER_A_CCTLN_OUTMOD_7;
 
-         TIMER_A0->CTL = TIMER_A_CTL_TASSEL_1 | TIMER_A_CTL_MC_1 | TIMER_A_CTL_CLR;//时钟1 比较输出
+         TIMER_A0->CTL = TIMER_A_CTL_TASSEL_2 | TIMER_A_CTL_MC_1 | TIMER_A_CTL_CLR;//时钟1 比较输出
          break;
     case( pwm_CHB):
           TA0CCR0 = period-1; // PWM周期T=512us
@@ -57,7 +65,7 @@ void pwm_init(PWMCH_enum CHI,int period,int duty)
           TIMER_A0->CCR[4] =  duty-1;
           TIMER_A0->CCTL[4] = TIMER_A_CCTLN_OUTMOD_7;
 
-          TIMER_A0->CTL = TIMER_A_CTL_TASSEL_1 | TIMER_A_CTL_MC_1 | TIMER_A_CTL_CLR;//时钟1 比较输出
+          TIMER_A0->CTL = TIMER_A_CTL_TASSEL_2 | TIMER_A_CTL_MC_1 | TIMER_A_CTL_CLR;//时钟1 比较输出
           break;
     case( pwm_CHC):
             TA0CCR0 = period-1; // PWM周期T=512us
@@ -70,7 +78,7 @@ void pwm_init(PWMCH_enum CHI,int period,int duty)
             TIMER_A0->CCR[2] =  duty-1;
             TIMER_A0->CCTL[2] = TIMER_A_CCTLN_OUTMOD_7;
 
-            TIMER_A0->CTL = TIMER_A_CTL_TASSEL_1 | TIMER_A_CTL_MC_1 | TIMER_A_CTL_CLR;//时钟1 比较输出
+            TIMER_A0->CTL = TIMER_A_CTL_TASSEL_2 | TIMER_A_CTL_MC_1 | TIMER_A_CTL_CLR;//时钟1 比较输出
             break;
     case( pwm_CHD):
               TA0CCR0 = period-1; // PWM周期T=512us
@@ -83,7 +91,7 @@ void pwm_init(PWMCH_enum CHI,int period,int duty)
               TIMER_A0->CCR[1] =  duty-1;
               TIMER_A0->CCTL[1] = TIMER_A_CCTLN_OUTMOD_7;
 
-              TIMER_A0->CTL = TIMER_A_CTL_TASSEL_1 | TIMER_A_CTL_MC_1 | TIMER_A_CTL_CLR;//时钟1 比较输出
+              TIMER_A0->CTL = TIMER_A_CTL_TASSEL_2 | TIMER_A_CTL_MC_1 | TIMER_A_CTL_CLR;//时钟1 比较输出
               break;
     case( pwm_CHE):
                   TA2CCR0 = period-1; // PWM周期T=512us
@@ -96,7 +104,7 @@ void pwm_init(PWMCH_enum CHI,int period,int duty)
                   TIMER_A2->CCR[1] =  duty-1;
                   TIMER_A2->CCTL[1] = TIMER_A_CCTLN_OUTMOD_7;
 
-                  TIMER_A2->CTL = TIMER_A_CTL_TASSEL_1 | TIMER_A_CTL_MC_1 | TIMER_A_CTL_CLR;//时钟1 比较输出
+                  TIMER_A2->CTL = TIMER_A_CTL_TASSEL_2 | TIMER_A_CTL_MC_1 | TIMER_A_CTL_CLR;//时钟1 比较输出
                   break;
     case( pwm_CHF):
                     TA2CCR0 = period-1; // PWM周期T=512us
@@ -109,7 +117,7 @@ void pwm_init(PWMCH_enum CHI,int period,int duty)
                     TIMER_A2->CCR[2] =  duty-1;
                     TIMER_A2->CCTL[2] = TIMER_A_CCTLN_OUTMOD_7;
 
-                    TIMER_A2->CTL = TIMER_A_CTL_TASSEL_1 | TIMER_A_CTL_MC_1 | TIMER_A_CTL_CLR;//时钟1 比较输出
+                    TIMER_A2->CTL = TIMER_A_CTL_TASSEL_2 | TIMER_A_CTL_MC_1 | TIMER_A_CTL_CLR;//时钟1 比较输出
                     break;
 
     }

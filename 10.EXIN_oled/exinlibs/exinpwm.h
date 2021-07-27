@@ -20,7 +20,7 @@ typedef enum{
     pwm_CHB,//B通道
     pwm_CHC,//C通道
     pwm_CHD,//D通道
-   pwm_CHE,//E通道
+    pwm_CHE,//E通道
     pwm_CHF,//F通道
     //pwm_CHG//G通道
 }PWMCH_enum;

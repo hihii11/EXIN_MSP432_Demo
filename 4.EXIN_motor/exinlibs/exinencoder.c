@@ -58,7 +58,7 @@ void encoder_dirpin_init(Encoder_Channel_enum CHI)
        case(ENCODER_CHA):gpio_init(GPIO_PORT_P4,GPIO_PIN5,GPO,1);break;
        case(ENCODER_CHB):gpio_init(GPIO_PORT_P3,GPIO_PIN0,GPO,1);break;
        case(ENCODER_CHC):gpio_init(GPIO_PORT_P6,GPIO_PIN7,GPO,1);break;
-       case(ENCODER_CHD):gpio_init(GPIO_PORT_P5,GPIO_PIN0,GPO,2);break;
+       case(ENCODER_CHD):gpio_init(GPIO_PORT_P5,GPIO_PIN0,GPO,1);break;
        }
 }
 /******************************
@@ -234,14 +234,16 @@ void TA0_N_IRQHandler(void)
 int time_counter=0;
 void OLED_show()
 {
-
+    char tmp[20]={};
     OLED_ShowString(0, 0, "sp/dr:");
 
-    OLED_ShowNum(64, 0,  GET_encoder_num(ENCODER_CHA), 4, 12);
+    sprintf(tmp,"%d  ", GET_encoder_num(ENCODER_CHA));
+    OLED_ShowString(64, 0, tmp);
 
     OLED_ShowNum(96, 0,  GET_encoder_dir(ENCODER_CHA), 4, 12);
 
-    OLED_ShowNum(64,1,  GET_encoder_num(ENCODER_CHB), 4, 12);
+    sprintf(tmp,"%d  ",  GET_encoder_num(ENCODER_CHB));
+    OLED_ShowString(64, 1, tmp);
 
     OLED_ShowNum(96, 1,  GET_encoder_dir(ENCODER_CHB), 4, 12);
     OLED_ShowNum(64, 2,  time_counter, 4, 12);
@@ -270,5 +272,6 @@ void ENCODER_TEST()
    PIT_init(PIT_CHA,110);
    while(1)
    {
+       OLED_show();
    }
 }

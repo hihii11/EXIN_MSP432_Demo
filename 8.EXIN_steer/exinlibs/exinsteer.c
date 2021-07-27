@@ -47,19 +47,19 @@ int steer_limit(STEERCH_enum CHI,int duty)
 {
     if(CHI==steer_CHA)
     {
-        if(duty>83)
-            return 83;
-        else if(duty<18)
-            return 18;
+        if(duty>5100)
+            return 5100;
+        else if(duty<4190)
+            return 4190;
         else
             return duty;
     }
     if(CHI==steer_CHB)
       {
-          if(duty>64)
-              return 64;
-          if(duty<18)
-              return 18;
+          if(duty>5100)
+              return 5100;
+          if(duty<4190)
+              return 4190;
           else
              return duty;
       }
@@ -90,11 +90,11 @@ int steer_flag=0;
 void OLED_STEER_show()
 {
     OLED_ShowString(0, 0, "A:");
-    OLED_ShowNum(64, 0,  steer_dutyA, 4, 12);
+    OLED_ShowNum(64, 0,  steer_dutyA, 8, 12);
     OLED_ShowString(0, 1, "B:");
-    OLED_ShowNum(64, 1,  steer_dutyB, 4, 12);
+    OLED_ShowNum(64, 1,  steer_dutyB, 8, 12);
 
-     OLED_ShowNum(64, 2,  steer_flag, 4, 12);
+     OLED_ShowNum(64, 2,  steer_flag, 8, 12);
 }
 /***********************************/
 /* steer_pwm_duty
@@ -113,8 +113,8 @@ void STEER_TEST()
     OLED_Init();
     OLED_Clear();
     key_init(KEY1|KEY2|KEY3|KEY4);//按键初始化
-    steer_pwm_init(steer_CHA,1000,steer_midA);//云台xy平面
-    steer_pwm_init(steer_CHB,1000,steer_midB);//云台yz平面
+    steer_pwm_init(steer_CHA,100,steer_midA);//云台xy平面               100hz
+    steer_pwm_init(steer_CHB,100,steer_midB);//云台yz平面20000000
     while(1)
     {
         OLED_STEER_show();
@@ -131,7 +131,7 @@ void STEER_TEST()
                 {
                     delay_ms(6);
                     if(!key_get(KEY1))
-                        steer_dutyA+=5;
+                        steer_dutyA+=10;
                     while(!key_get(KEY1));
                 }
                 if(!key_get(KEY2))
@@ -145,7 +145,7 @@ void STEER_TEST()
                  {
                       delay_ms(6);
                       if(!key_get(KEY3))
-                          steer_dutyA-=5;
+                          steer_dutyA-=10;
                       while(!key_get(KEY3));
                 }
         }
@@ -155,7 +155,7 @@ void STEER_TEST()
                   {
                       delay_ms(6);
                       if(!key_get(KEY1))
-                          steer_dutyB+=5;
+                          steer_dutyB+=10;
                       while(!key_get(KEY1));
                   }
                   if(!key_get(KEY2))
@@ -169,14 +169,14 @@ void STEER_TEST()
                    {
                         delay_ms(6);
                         if(!key_get(KEY3))
-                            steer_dutyB-=5;
+                            steer_dutyB-=10;
                         while(!key_get(KEY3));
                   }
           }
         steer_dutyA=steer_limit(steer_CHA,steer_dutyA);
         steer_dutyB=steer_limit(steer_CHB,steer_dutyB);
-        steer_pwm_duty(pwm_CHF,steer_dutyB);
-        steer_pwm_duty(pwm_CHE,steer_dutyA);
+        steer_pwm_duty(steer_CHA,steer_dutyA);
+        steer_pwm_duty(steer_CHB,steer_dutyB);
     }
 
 }

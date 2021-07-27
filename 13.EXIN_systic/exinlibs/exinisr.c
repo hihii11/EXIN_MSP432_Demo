@@ -73,8 +73,12 @@ void PORT2_IRQHandler(void)
     }
     else if(status & GPIO_PIN3)
       {
-        encoder_A.encoder++;
-        encoder_A.dir=gpio_get(GPIO_PORT_P3,GPIO_PIN0);
+        encoder_B.dir=gpio_get(GPIO_PORT_P3,GPIO_PIN0);
+        if(encoder_B.dir == 1)
+            encoder_B.encoder++;
+        else
+            encoder_B.encoder--;
+
         /*添加程序*/
       }
     else if(status & GPIO_PIN4)
@@ -159,8 +163,11 @@ void PORT4_IRQHandler(void)
     else if(status & GPIO_PIN4)
       {
         /*添加程序*/
-        encoder_A.encoder++;
         encoder_A.dir=gpio_get(GPIO_PORT_P4,GPIO_PIN5);
+        if(encoder_A.dir == 1)
+            encoder_A.encoder++;
+        else
+            encoder_A.encoder--;
       }
     else if(status & GPIO_PIN5)
       {
@@ -189,8 +196,11 @@ void PORT5_IRQHandler(void)
 
     if(status & GPIO_PIN1)
     {
-        encoder_D.encoder++;
         encoder_D.dir=gpio_get(GPIO_PORT_P5,GPIO_PIN0);
+        if(encoder_D.dir == 1)
+            encoder_D.encoder++;
+        else
+            encoder_D.encoder--;
         /*添加程序*/
     }
     else if(status & GPIO_PIN2)
@@ -252,8 +262,11 @@ void PORT6_IRQHandler(void)
       }
     else if(status & GPIO_PIN6)
       {
-        encoder_C.encoder++;
         encoder_C.dir=gpio_get(GPIO_PORT_P6,GPIO_PIN1);
+        if(encoder_C.dir == 1)
+            encoder_C.encoder++;
+        else
+            encoder_C.encoder--;
         /*添加程序*/
       }
     else if(status & GPIO_PIN7)

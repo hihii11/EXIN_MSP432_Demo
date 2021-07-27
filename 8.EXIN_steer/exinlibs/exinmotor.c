@@ -15,19 +15,21 @@
 
 /*******************************
  *
- * pwm引脚初始化
+ * pwmp频率
  *
+ *最大占空比计算 (200/perod)*15000
  *
+ *这里默认period周期为1000hz，所以最大占空比为duty=3000
  *
  ****************************/
 void Motor_PWM_INIT(SMOTOR_enum CHI)
 {
     switch(CHI)
     {
-    case(MOTOR_CHA):pwm_init(pwm_CHA,100,0);break;//pwm A通道
-    case(MOTOR_CHB):pwm_init(pwm_CHB,100,0);break;//pwm B通道
-    case(MOTOR_CHC):pwm_init(pwm_CHC,100,0);break;//pwm C通道
-    case(MOTOR_CHD):pwm_init(pwm_CHD,100,0);break;//pwm D通道
+    case(MOTOR_CHA):pwm_init(pwm_CHA,1000,0);break;//pwm A通道
+    case(MOTOR_CHB):pwm_init(pwm_CHB,1000,0);break;//pwm B通道（1000）1khz
+    case(MOTOR_CHC):pwm_init(pwm_CHC,1000,0);break;//pwm C通道
+    case(MOTOR_CHD):pwm_init(pwm_CHD,1000,0);break;//pwm D通道
     }
 }
 
@@ -157,7 +159,7 @@ void MOTOR_TEST()
     system_init(0);
     Motor_init(MOTOR_CHC);
     Motor_init(MOTOR_CHD);
-    Motor_pwm_duty(MOTOR_CHC,1,30);
-    Motor_pwm_duty(MOTOR_CHD,0,30);
+    Motor_pwm_duty(MOTOR_CHC,1,1000);
+    Motor_pwm_duty(MOTOR_CHD,0,1000);
     while(1);
 }

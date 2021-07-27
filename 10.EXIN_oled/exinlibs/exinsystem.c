@@ -61,7 +61,8 @@ void set_DCO_48MH()
      CS->CTL0 = CS_CTL0_DCORSEL_5;           // 设置DCO时钟为48M
     //将MCLK选为DCO
      CS->CTL1 = CS->CTL1 & ~(CS_CTL1_SELM_MASK | CS_CTL1_DIVM_MASK) |
-             CS_CTL1_SELM_3;
+             CS_CTL1_SELM_3|CS_CTL1_DIVS__16;
+
      CS->KEY = 0;                            // CS寄存器上锁
 }
 

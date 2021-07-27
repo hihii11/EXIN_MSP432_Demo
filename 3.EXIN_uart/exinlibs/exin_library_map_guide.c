@@ -24,7 +24,7 @@
  * PWM     pwm_CHD       p2.4            电机
  * PWM     pwm_CHE       p5.6            舵机
  * PWM     pwm_CHE       p5.7            舵机
- * UART    UART0         lanchpadUSB/PC  PC通信
+ * UART    UART0         lanchpadUSB/PC  PC通信//调试
  * UART    UART2         p3.2 p3.3       openmv
  * ADC     ADC_CHA       p5.2            传感器
  * ADC     ADC_CHB       p5.3            传感器
@@ -35,10 +35,10 @@
  * pit     PIT_CHB
  * pit     PIT_CHC
  * pit     PIT_CHD
- * encoder ENCODER_CHA   p6.4            编码器
- * encoder ENCODER_CHB   自定义                   编码器
- * encoder ENCODER_CHC   自定义                   编码器
- * encoder ENCODER_CHD   自定义                   编码器
+ * encoder ENCODER_CHA   p4.5 p4.4          编码器
+ * encoder ENCODER_CHB   p3.0 p2.3          编码器
+ * encoder ENCODER_CHC   p6.7 p6.6          编码器
+ * encoder ENCODER_CHD   p5.0 p5.1          编码器
  * adjust  AB相旋钮编码器调参         查 exinadjust.h
  *-------------------------------------------------
  *-------------------------------------------------
