@@ -55,10 +55,10 @@ void encoder_dirpin_init(Encoder_Channel_enum CHI)
 {
     switch(CHI)
        {
-       case(ENCODER_CHA):gpio_init(GPIO_PORT_P4,GPIO_PIN5,GPO,1);break;
-       case(ENCODER_CHB):gpio_init(GPIO_PORT_P3,GPIO_PIN0,GPO,1);break;
-       case(ENCODER_CHC):gpio_init(GPIO_PORT_P6,GPIO_PIN7,GPO,1);break;
-       case(ENCODER_CHD):gpio_init(GPIO_PORT_P5,GPIO_PIN0,GPO,1);break;
+       case(ENCODER_CHA):gpio_init(GPIO_PORT_P4,GPIO_PIN5,GPI,0);break;
+       case(ENCODER_CHB):gpio_init(GPIO_PORT_P3,GPIO_PIN0,GPI,0);break;
+       case(ENCODER_CHC):gpio_init(GPIO_PORT_P6,GPIO_PIN7,GPI,0);break;
+       case(ENCODER_CHD):gpio_init(GPIO_PORT_P5,GPIO_PIN0,GPI,0);break;
        }
 }
 /******************************

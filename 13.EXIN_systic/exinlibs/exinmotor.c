@@ -44,10 +44,10 @@ void Motor_DIR_PIN_INIT(SMOTOR_enum CHI)
 {
     switch(CHI)
     {
-    case(MOTOR_CHA):gpio_init(GPIO_PORT_P3,GPIO_PIN6,GPO,0);break;//方向引脚
-    case(MOTOR_CHB):gpio_init(GPIO_PORT_P4,GPIO_PIN1,GPO,1);break;//方向引脚
-    case(MOTOR_CHC):gpio_init(GPIO_PORT_P8,GPIO_PIN6,GPO,0);break;//方向引脚
-    case(MOTOR_CHD):gpio_init(GPIO_PORT_P8,GPIO_PIN7,GPO,1);break;//方向引脚
+    case(MOTOR_CHA):gpio_init(GPIO_PORT_P8,GPIO_PIN6,GPO,0);break;//方向引脚
+    case(MOTOR_CHB):gpio_init(GPIO_PORT_P8,GPIO_PIN7,GPO,1);break;//方向引脚
+    case(MOTOR_CHC):gpio_init(GPIO_PORT_P4,GPIO_PIN1,GPO,1);break;//方向引脚
+    case(MOTOR_CHD):gpio_init(GPIO_PORT_P3,GPIO_PIN6,GPO,0);break;//方向引脚
     }
 }
 
@@ -90,30 +90,30 @@ void Motor_pwm_duty(SMOTOR_enum CHI,char Dir,int duty)//Dir=0前进//Dir=1后退
         case(MOTOR_CHA):
                 pwm_duty(pwm_CHA,duty);
                 if(Dir)//后退
-                    gpio_set(GPIO_PORT_P3,GPIO_PIN6,1);//方向引脚拉高
+                    gpio_set(GPIO_PORT_P8,GPIO_PIN6,1);//方向引脚拉高
                 else
-                    gpio_set(GPIO_PORT_P3,GPIO_PIN6,0);//方向引脚拉低
+                    gpio_set(GPIO_PORT_P8,GPIO_PIN6,0);//方向引脚拉低
                 break;
         case(MOTOR_CHB):
                 pwm_duty(pwm_CHB,duty);
                 if(Dir)//后退
-                     gpio_set(GPIO_PORT_P4,GPIO_PIN1,1);//方向引脚拉高
+                     gpio_set(GPIO_PORT_P8,GPIO_PIN7,1);//方向引脚拉高
                 else
-                     gpio_set(GPIO_PORT_P4,GPIO_PIN1,0);//方向引脚拉低
+                     gpio_set(GPIO_PORT_P8,GPIO_PIN7,0);//方向引脚拉低
                break;
         case(MOTOR_CHC):
                pwm_duty(pwm_CHC,duty);
               if(Dir)//后退
-                     gpio_set(GPIO_PORT_P8,GPIO_PIN6,1);//方向引脚拉高
+                     gpio_set(GPIO_PORT_P4,GPIO_PIN1,1);//方向引脚拉高
                else
-                     gpio_set(GPIO_PORT_P8,GPIO_PIN6,0);//方向引脚拉低
+                     gpio_set(GPIO_PORT_P4,GPIO_PIN1,0);//方向引脚拉低
                break;
         case(MOTOR_CHD):
                 pwm_duty(pwm_CHD,duty);
                 if(Dir)//后退
-                      gpio_set(GPIO_PORT_P8,GPIO_PIN7,1);//方向引脚拉高
+                      gpio_set(GPIO_PORT_P3,GPIO_PIN6,1);//方向引脚拉高
                 else
-                      gpio_set(GPIO_PORT_P8,GPIO_PIN7,0);//方向引脚拉低
+                      gpio_set(GPIO_PORT_P3,GPIO_PIN6,0);//方向引脚拉低
                  break;
     }
 }

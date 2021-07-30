@@ -43,7 +43,6 @@ void UART0_init()
         FlashCtl_setWaitState(FLASH_BANK0, 2);
         FlashCtl_setWaitState(FLASH_BANK1, 2);
         PCM_setCoreVoltageLevel(PCM_VCORE1);
-        CS_setDCOCenteredFrequency(CS_DCO_FREQUENCY_24);
         GPIO_setAsPeripheralModuleFunctionInputPin(GPIO_PORT_P1, GPIO_PIN2 | GPIO_PIN3, GPIO_PRIMARY_MODULE_FUNCTION);
         UART_initModule(EUSCI_A0_BASE, & UART0);
         UART_enableModule(EUSCI_A0_BASE);
@@ -82,17 +81,10 @@ const eUSCI_UART_Config  UART2 =
  *****************************/
 void UART2_init()
 {
-       FPU_enableModule();
-       GPIO_setAsPeripheralModuleFunctionOutputPin(GPIO_PORT_PJ,GPIO_PIN3 | GPIO_PIN2, GPIO_PRIMARY_MODULE_FUNCTION);
-       CS_setExternalClockSourceFrequency(32000,48000000);
-       PCM_setPowerState(PCM_AM_DCDC_VCORE1);
-       FlashCtl_setWaitState(FLASH_BANK0, 3);
-       FlashCtl_setWaitState(FLASH_BANK1, 3);
-       CS_startHFXT(false);
-       CS_initClockSignal(CS_MCLK, CS_HFXTCLK_SELECT, CS_CLOCK_DIVIDER_1);
-       CS_initClockSignal(CS_HSMCLK, CS_HFXTCLK_SELECT, CS_CLOCK_DIVIDER_1);
-       CS_initClockSignal(CS_SMCLK, CS_HFXTCLK_SELECT, CS_CLOCK_DIVIDER_2);
-       GPIO_setAsPeripheralModuleFunctionInputPin(GPIO_PORT_P3, GPIO_PIN2| GPIO_PIN3, GPIO_PRIMARY_MODULE_FUNCTION);
+       FlashCtl_setWaitState(FLASH_BANK0, 2);
+       FlashCtl_setWaitState(FLASH_BANK1, 2);
+       PCM_setCoreVoltageLevel(PCM_VCORE1);
+       GPIO_setAsPeripheralModuleFunctionInputPin(GPIO_PORT_P3, GPIO_PIN2 | GPIO_PIN3, GPIO_PRIMARY_MODULE_FUNCTION);
        UART_initModule(EUSCI_A2_BASE, & UART2);
        UART_enableModule(EUSCI_A2_BASE);
        UART_enableInterrupt(EUSCI_A2_BASE, EUSCI_A_UART_RECEIVE_INTERRUPT);
@@ -132,7 +124,6 @@ void UART3_init()
        FlashCtl_setWaitState(FLASH_BANK0, 2);
        FlashCtl_setWaitState(FLASH_BANK1, 2);
        PCM_setCoreVoltageLevel(PCM_VCORE1);
-       CS_setDCOCenteredFrequency(CS_DCO_FREQUENCY_24);
        GPIO_setAsPeripheralModuleFunctionInputPin(GPIO_PORT_P9, GPIO_PIN6 | GPIO_PIN7, GPIO_PRIMARY_MODULE_FUNCTION);
        UART_initModule(EUSCI_A3_BASE, & UART3);
        UART_enableModule(EUSCI_A3_BASE);
@@ -152,8 +143,8 @@ void UART_send_string(uint32_t moduleInstance,char*txt)
     int i;
     for(i=0;txt[i];i++)
     {
-        delay_us(500);
-        UART_transmitData(moduleInstance,txt[i]);
+       delay_ms(2);
+       UART_transmitData(moduleInstance,txt[i]);
     }
 }
 /******************************

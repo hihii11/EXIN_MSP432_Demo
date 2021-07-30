@@ -24,7 +24,7 @@ void main()
     UART0_init();//初始化串口1，对应launchpad usb接口 波特率115200
     gpio_init(GPIO_PORT_P1,GPIO_PIN1,GPO,1);
     delay_ms(1000);
-    UART_send_string(EUSCI_A0_BASE,"HELLOW_EXIN");
+    UART_send_string(EUSCI_A0_BASE,"HELLO_EXIN\n");
     //UART_send_Num(EUSCI_A0_BASE,80);
     while(1);
 }
