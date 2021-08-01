@@ -183,3 +183,13 @@ void EUSCIA2_IRQHandler(void)
     }
 }
 
+void EUSCIA3_IRQHandler()
+{
+    uint32_t status = UART_getEnabledInterruptStatus(EUSCI_A3_BASE);
+    UART_clearInterruptFlag(EUSCI_A3_BASE, status);
+    if(status & EUSCI_A_UART_RECEIVE_INTERRUPT_FLAG)
+    {
+          UART_clearInterruptFlag(EUSCI_A3_BASE, EUSCI_A_UART_RECEIVE_INTERRUPT_FLAG);
+          /**********ДњТы***************/
+    }
+}

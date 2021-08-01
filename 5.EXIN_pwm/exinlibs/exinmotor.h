@@ -23,9 +23,9 @@ typedef struct
    uint16 P;
    uint16 I;
    uint16 D;
-   int Error_now;
-   int Error_pre;
-   int Error_pre2;
+   int Error_now;//本次误差值     e[k]
+   int Error_pre;//前一次误差值  e[k-1]
+   int Error_pre2;//再前次误差值e[k-2]
 } PID_IncTypeDef;
 
 typedef enum{

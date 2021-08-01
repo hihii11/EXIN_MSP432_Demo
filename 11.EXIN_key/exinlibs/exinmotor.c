@@ -145,11 +145,13 @@ PID（自定义类型） ActualValue当前值
 int PID_Inc( PID_IncTypeDef *PID, int ActualValue )
 {
   int PIDInc=0;
-  PID->Error_now = PID->target - ActualValue;
-  PIDInc = (PID->P * PID->Error_now) - (PID->I * PID->Error_pre) + (PID->D * PID->Error_pre2);
+  PID->Error_now = PID->target - ActualValue;//计算e[k]
+  PIDInc = (PID->P * (PID->Error_now - PID->Error_pre                  )) + //P项  Kp[e(k)-e(k-1)]
+           (PID->I *  PID->Error_now                                    ) +//I项  Kie(k)
+           (PID->D * (PID->Error_now - 2*PID->Error_pre+PID->Error_pre2));  //D项  Kd[e(k)-2e(k-1)+e(k-2)
 
-  PID->Error_pre2 = PID->Error_pre;
-  PID->Error_pre = PID->Error_now;
+  PID->Error_pre2 = PID->Error_pre;//更新e[k-2]
+  PID->Error_pre = PID->Error_now;//更新e[k-1]
 
   return PIDInc;
 }
